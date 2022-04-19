@@ -46,7 +46,7 @@ let sequelize = new Sequelize(config.DB_NAME, config.DB_USERNAME, config.DB_PASS
   },
 });
 
-sequelize.sync();
+sequelize.sync({alter: true});
 
 fs.readdirSync(__dirname)
   .filter((file) => {

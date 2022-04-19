@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes)=>{
 
         name:       DataTypes.STRING,
 
+        email:      DataTypes.STRING,
+
+        status:     DataTypes.ENUM('0', '1'),
+
         created_at: DataTypes.DATEONLY,
         
         updated_at: DataTypes.DATE
