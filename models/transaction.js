@@ -46,5 +46,9 @@ module.exports = (sequelize, DataTypes)=>{
         freezeTableName: true
     });
 
+    transaction.associate = (db)=>{
+        db.transaction.belongsTo(db.order);
+    }
+
     return transaction;
 };

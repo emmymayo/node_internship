@@ -38,6 +38,9 @@ module.exports = (sequelize, DataTypes)=>{
         freezeTableName: true
     });
 
+    order.associate = (db)=>{
+        db.order.hasOne(db.transaction);
+    }
 
     return order;
 };

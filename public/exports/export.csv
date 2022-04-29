@@ -1,0 +1,3 @@
+id, order_id, user_id, shipping_dock_id, amount, notes 
+1, 2, 1, 1 , 1000,  order processing
+3, 2, 1, 1 , 1000,  order processing

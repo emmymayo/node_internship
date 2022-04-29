@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1 #{title}
+    if status
+    h6 #{status}
+    form(action="/api/v1/imports", method="post" enctype="multipart/form-data")
+        input(type="file", name="transaction")
+        input(type="submit", value="Import Transaction")

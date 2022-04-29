@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var shippingDocksRouter = require('./routes/shipping_docks');
@@ -13,6 +14,9 @@ var reportsRouter = require('./routes/reports');
 var rulesRouter = require('./routes/rules');
 var variablesRouter = require('./routes/variables');
 var emailsRouter = require('./routes/emails');
+var exportsRouter = require('./routes/exports');
+var importsRouter = require('./routes/imports');
+
 
 const db = require("./models");
 var cors = require("cors");
@@ -32,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.get('/import', (req, res) => {res.render('import', { title: 'Import Transactions', })});
 app.use('/api/v1/shipping_docks', shippingDocksRouter);
 app.use('/api/v1/orders', ordersRouter);
 app.use('/api/v1/transactions', transactionsRouter);
@@ -39,6 +44,8 @@ app.use('/api/v1/reports', reportsRouter);
 app.use('/api/v1/rules', rulesRouter);
 app.use('/api/v1/variables', variablesRouter);
 app.use('/api/v1/emails', emailsRouter);
+app.use('/api/v1/exports', exportsRouter);
+app.use('/api/v1/imports', importsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
