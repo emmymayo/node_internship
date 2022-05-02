@@ -16,6 +16,7 @@ var variablesRouter = require('./routes/variables');
 var emailsRouter = require('./routes/emails');
 var exportsRouter = require('./routes/exports');
 var importsRouter = require('./routes/imports');
+var productsControllerRouter = require('./routes/productsController');
 
 
 const db = require("./models");
@@ -37,6 +38,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.get('/import', (req, res) => {res.render('import', { title: 'Import Transactions', })});
+app.use('/products', productsControllerRouter);
+
+
 app.use('/api/v1/shipping_docks', shippingDocksRouter);
 app.use('/api/v1/orders', ordersRouter);
 app.use('/api/v1/transactions', transactionsRouter);

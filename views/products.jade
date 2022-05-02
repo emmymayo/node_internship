@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1  Shopify Products 
+    each val, index in products
+        .products 
+            h4 #{val.title}
+            img(src="#{val.images[0].src}", alt="#{val.title}")
+            h4 #{val.variants[0].price}
+
+    #pagination
+        a(href="/products?prev=#{nextCursor}&cursor=#{prevCursor}") Prev
+        a(href="/products?prev=#{prevCursor}&cursor=#{nextCursor}") Next
+
